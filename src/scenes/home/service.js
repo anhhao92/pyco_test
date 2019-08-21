@@ -1,12 +1,13 @@
 import { restClient } from "../../services/base.service";
+import { PAGE_SIZE } from "../../constants";
 
-export function getImages(limit = 20) {
+export function getImages(offset) {
   return restClient({
     url: "https://api.giphy.com/v1/gifs/trending",
     method: "get",
     data: {
-      limit: limit,
-      offset: Math.floor(Math.random() * 10000) // randomly select item in range [0, 10000]
+      limit: PAGE_SIZE,
+      offset
     }
   })
     .then(res => res.data)

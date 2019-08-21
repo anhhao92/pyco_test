@@ -18,9 +18,10 @@ export function closePreview() {
   };
 }
 
-export function getImages() {
+export function getImages(page = 0) {
   return {
-    type: GET_IMAGES
+    type: GET_IMAGES,
+    payload: page
   };
 }
 

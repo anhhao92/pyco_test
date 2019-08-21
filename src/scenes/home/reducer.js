@@ -3,6 +3,7 @@ import * as homeActions from "./action";
 export const initialState = {
   isLoading: false,
   images: [],
+  page: 0,
   selectedImage: null,
   error: null
 };
@@ -12,15 +13,15 @@ const homeReducer = (state = initialState, action) => {
     case homeActions.GET_IMAGES:
       return {
         ...state,
-        isLoading: true,
-        error: null
+        page: action.payload,
+        isLoading: true
       };
 
     case homeActions.GET_IMAGES_SUCCEED:
       return {
         ...state,
         isLoading: false,
-        images: action.payload.data
+        images: [...state.images, ...action.payload.data]
       };
 
     case homeActions.GET_IMAGES_FAILED:

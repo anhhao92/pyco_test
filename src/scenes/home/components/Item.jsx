@@ -3,7 +3,6 @@ import React from "react";
 
 const Item = ({ item, openPreview }) => {
   const { user } = item;
-
   return (
     <div className="item">
       <div className="item__body">

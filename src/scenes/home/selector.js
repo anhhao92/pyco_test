@@ -12,6 +12,11 @@ export const getSelectedImageSelector = createSelector(
   state => state.selectedImage
 );
 
+export const getCurrentPageSelector = createSelector(
+  getState,
+  state => state.page
+);
+
 export const getLoadingSelector = createSelector(
   getState,
   state => state.isLoading
