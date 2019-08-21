@@ -1,0 +1,9 @@
+.animation(@arguments) {
+  animation: @arguments;
+}
+
+.keyframes(@name; @arguments) {
+  @keyframes @name {
+    @arguments();
+  }
+}

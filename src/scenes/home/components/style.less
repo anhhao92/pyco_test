@@ -1,0 +1,84 @@
+@import "../../../theme/_variable";
+@import "../../../theme/mixins";
+
+.homepage {
+  margin: 20px;
+}
+
+.item {
+  &__thumbnail-container {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  &__thumbnail {
+    height: 255px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    height: 300px;
+    background-color: @white-color;
+  }
+
+  &__footer {
+    margin: 10px 0;
+    height: 30px;
+  }
+
+  &__footer-author {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: @author-color;
+  }
+
+  &__footer-thumbnail {
+    width: 30px;
+    height: 30px;
+    border-radius: 18px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+  }
+}
+
+.backdrop {
+  background-color: @backdrop-color;
+  background-position: 50%;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999998;
+
+  .keyframes(fade-in; {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    } 
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  });
+
+  .animation(fade-in 0.2s ease-out);
+
+  &__image {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: auto;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
