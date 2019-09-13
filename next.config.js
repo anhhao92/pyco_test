@@ -2,9 +2,9 @@ const withPlugins = require('next-compose-plugins')
 const lessPlugin = require('@zeit/next-less')
 const cssPlugin = require('@zeit/next-css')
 
-if (typeof require !== 'undefined') {
-  require.extensions['.less'] = (file) => {}
-}
+// if (typeof require !== 'undefined') {
+//   require.extensions['.less'] = (file) => {}
+// }
 
 module.exports = withPlugins(
   [

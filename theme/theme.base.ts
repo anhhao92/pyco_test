@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import 'antd/lib/style/index.css'
 
 export const theme = {
   colors: {

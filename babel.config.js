@@ -11,7 +11,7 @@ module.exports = (api) => {
       ],
     ],
     plugins: [
-      ['import', { libraryName: 'antd', style: true }],
+      // ['import', { libraryName: 'antd', style: true }],
       ['@babel/plugin-proposal-decorators', { legacy: true }],
     ],
   }
