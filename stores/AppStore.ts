@@ -18,6 +18,12 @@ export class AppStore {
       this.loading = false
       this.initialized = true
     })
+    return response.data
+  }
+
+  @action
+  setLoading(loading) {
+    this.loading = loading
   }
 
   @action

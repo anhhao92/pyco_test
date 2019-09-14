@@ -1,13 +1,13 @@
 import React from 'react'
-import { Spin } from 'antd'
 import { observer } from 'mobx-react-lite'
 import { useAppContext } from '../../hooks/context'
 import { AppStore } from '../../stores'
 import { MasterLayout } from '../../components'
 import ListCard from './components/ListCard'
 import ViewCard from './components/ViewCard'
+import LoadingSkeleton from './components/Skeleton'
 
-const MainScreen: React.FC = () => {
+const MainScreen: React.FC<any> = ({ initData }) => {
   const store = useAppContext() as AppStore
   React.useEffect(() => {
     store.init()
@@ -15,15 +15,17 @@ const MainScreen: React.FC = () => {
 
   return (
     <MasterLayout>
-      <Spin spinning={store.loading}>
-        {store.initialized && (
-          <ListCard openPreview={store.openPreview} images={store.gifs} />
-        )}
-      </Spin>
-
-      {store.visible && (
-        <ViewCard item={store.card} closePreview={store.closePreview} />
+      {store.loading || !store.initialized ? (
+        <LoadingSkeleton />
+      ) : (
+        <ListCard openPreview={store.openPreview} images={store.gifs} />
       )}
+
+      <ViewCard
+        visible={store.visible}
+        item={store.card}
+        closePreview={store.closePreview}
+      />
     </MasterLayout>
   )
 }

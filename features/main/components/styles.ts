@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { zoomOut } from '../../../theme'
+
 export const ThumbnailContainer = styled.div`
   padding: 10px;
   cursor: pointer;
